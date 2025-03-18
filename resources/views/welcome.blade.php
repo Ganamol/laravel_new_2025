@@ -1,0 +1,111 @@
+@extends('Layout.Master')
+ {{-- @include('partials.menu') --}}
+@section('content') 
+
+
+{{-- <!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body> --}}
+{{--         
+        <h1>Hai</h1>
+        <p>{{$name}}</p>
+        <h3>{{$c}}</h3>
+        @foreach ($colors as $color)
+        <h3>{{$color}}</h3>
+        {{strtoupper($color)}}
+        {{strtolower($color)}}
+         {{$loop->index}}.{{$color}}
+        @endforeach --}}
+
+
+        {{-- @if($age==30)
+         <p>allowed</p>
+         @else
+         <p>not allowed</p>
+         @endif --}}
+
+       {{-- @isset($record)
+       <h1>Color Getting</h1>  
+       @endisset --}}
+
+       {{-- @unless (if$age==30)
+           <h2>you are not allowed</h2>
+       @endunless --}}
+
+       {{-- @isset($record)
+           <h1>Color Getting</h1>
+       @endisset
+
+       @empty
+       <h1>color empty</h1>
+       @endempty --}}
+
+{{-- @switch($status)
+    @case(1)
+        <h1>status1</h1>
+        @break
+        @case(2)
+        <h1>status2</h1>
+        @break
+
+    @default
+        
+@endswitch --}}
+
+{{-- @for ($i=1;$i<5;$i++)
+    <h1>the value is{{$i}}</h1>
+@endfor --}}
+
+
+{{-- @foreach ($colors as  $color)
+    <h3>{{$color}}</h3>
+@endforeach --}}
+
+    {{-- </body>
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+
+    <a href="{{ route('users.create') }}" class="btn btn-success">NEW</a>
+    <table class="table table-striped" style="width: 75%">
+        <thead>
+          <tr>
+           <th>No</th>
+            <th scope="col">Name</th>
+            <th scope="col">dob</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach ($users as $user)
+            <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->dob}}</td>
+                <td>{{$user->status}}</td>
+                <td><a href="" class="btn btn-primary"> Edit</a></td> 
+                <td><a href=""  class="btn btn-success">Delete</a></td>  
+            </tr>  
+            @endforeach
+    
+         
+        </tbody>
+      </table>
+</body>
+</html><h1>section</h1>
+@endsection
