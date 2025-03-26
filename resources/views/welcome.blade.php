@@ -81,6 +81,10 @@
 </head>
 <body>
 
+
+  @if (session()->has('message'))    
+ <p>{{session()->get('message')}}</p>
+   @endif 
     <a href="{{ route('users.create') }}" class="btn btn-success">NEW</a>
     <table class="table table-striped" style="width: 75%">
         <thead>
@@ -95,11 +99,12 @@
             @foreach ($users as $user)
             <tr>
                 <td>{{$loop->iteration}}</td>
+                <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->dob}}</td>
                 <td>{{$user->status}}</td>
-                <td><a href="" class="btn btn-primary"> Edit</a></td> 
-                <td><a href=""  class="btn btn-success">Delete</a></td>  
+                <td><a href="{{route('edit.users',encrypt($user->id))}}" class="btn btn-primary">Edit</a></td> 
+                <td><a href="{{route('delete.users',encrypt($user->id))}}"  class="btn btn-success">Delete</a></td>  
             </tr>  
             @endforeach
     

@@ -53,13 +53,71 @@ class HomeController extends Controller
           $dob=request('dob');
           $status=request('status');
 
-User::create([
-    'name'=>$name,
-    'dob'=>$dob,
-    'status'=>$status
-]);
-        return "form submit";
+            User::create([
+           'name'=>$name,
+           'dob'=>$dob,
+           'status'=>$status
+          ]);
+
+    //   $user=User::firstOrCreate([
+    //         'email'=>request('email')
+    //     ],[
+    //         'name'=>request('name'),
+    //         'dob'=>request('dob'),
+    //         'status'=>request('status'),
+    
+    //     ]);
+    //     return $user;
+
+
+        // $user=User::updateOrCreate([
+        //     'email'=>request('email')
+        // ],[
+        //     'name'=>request('name'),
+        //     'dob'=request('dob'),
+        //     'status'=>request('status'),
+    
+        // ]);
+        // return $user;
+
+
+
+
+
+
+
+
+
+        return redirect()->route('home')->with('message','User Created Sucessfully');
         // return view('save.create');
     }
+
+    public function delete($userId)
+{
+User::find(decrypt($userId))->delete();
+
+return redirect()->route('home')
+->with('message','User Deleted Successfully');
 }
 
+
+public function edit($userId)
+{
+   $user= User::find(decrypt($userId));
+    // $user=User::find(decrypt($userId));
+    return view('users.edit',compact('user'));
+}
+public function update()
+{
+   
+    $userId=decrypt(request('id'));
+    $user= User::find($userId);
+    $user->update([
+        'name'=>request('name'),
+           'dob'=>request('dob'),
+           'status'=>request('status')
+    ]);
+      return redirect()->route('home')
+      ->with('message','update successfully');
+}
+}
