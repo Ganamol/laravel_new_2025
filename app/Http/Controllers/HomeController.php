@@ -27,7 +27,10 @@ class HomeController extends Controller
         // $colors=['red','blue','green','yellow','red'];
         // return view('welcome',compact('colors'));
 
-        $users=User::all();
+        // $users=User::all();
+        $users=User::withTrashed()->latest()->paginate(6);
+       
+        
         // $users=User::find(1);
         // $users=User::where('id','=',5)->get();
         //   $users=User::where('id','=',5)->first();

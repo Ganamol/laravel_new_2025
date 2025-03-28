@@ -98,7 +98,8 @@
         <tbody>
             @foreach ($users as $user)
             <tr>
-                <td>{{$loop->iteration}}</td>
+                {{-- <td>{{$loop->iteration}}</td> --}}
+                <td>{{$users->firstItem()+$loop->index}}</td>
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->dob}}</td>
@@ -111,6 +112,10 @@
          
         </tbody>
       </table>
+<div>
+    {{$users->links()}}
+</div>
+
 </body>
 </html><h1>section</h1>
 @endsection
