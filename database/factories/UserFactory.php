@@ -25,8 +25,8 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            // 'email' => fake()->unique()->safeEmail(),
-     
+            'email' => fake()->unique()->safeEmail(),
+     'password'=>bcrypt('captainamerica'),
             'dob' => fake()->date('Y-m-d', 'now'),
             'status'=>rand(1,0),
 

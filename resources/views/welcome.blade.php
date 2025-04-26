@@ -85,13 +85,24 @@
   @if (session()->has('message'))    
  <p>{{session()->get('message')}}</p>
    @endif 
-    <a href="{{ route('users.create') }}" class="btn btn-success">NEW</a>
+
+   <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>
+
+    
+
+  <a href="{{ route('users.create') }}" class="btn btn-success">NEW</a>
     <table class="table table-striped" style="width: 75%">
         <thead>
           <tr>
            <th>No</th>
             <th scope="col">Name</th>
             <th scope="col">dob</th>
+            <th scope="col">Date</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
             <th scope="col">Status</th>
           </tr>
         </thead>
@@ -103,6 +114,8 @@
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->dob}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->password}}</td>
                 <td>{{$user->status}}</td>
                 <td><a href="{{route('edit.users',encrypt($user->id))}}" class="btn btn-primary">Edit</a></td> 
                 <td><a href="{{route('delete.users',encrypt($user->id))}}"  class="btn btn-success">Delete</a></td>  

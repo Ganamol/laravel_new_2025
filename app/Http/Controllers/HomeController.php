@@ -28,8 +28,13 @@ class HomeController extends Controller
         // return view('welcome',compact('colors'));
 
         // $users=User::all();
+
+        session()->put('user_name','Gana');
+        session()->put('user_id','43');
+        
         $users=User::withTrashed()->latest()->paginate(6);
-       
+       session()->forget('user_name');
+       session()->flush();
         
         // $users=User::find(1);
         // $users=User::where('id','=',5)->get();
@@ -47,17 +52,22 @@ class HomeController extends Controller
     }
 
     public function create()
-    {
+    { 
+        // return session()->get('user_name');
         return view('users.create');
     }
     public function save()
     {
           $name=request('name');
+          $email=request('email');
+          $password=request('password');
           $dob=request('dob');
           $status=request('status');
 
             User::create([
            'name'=>$name,
+           'email'=>$email,
+           'password'=>$password,
            'dob'=>$dob,
            'status'=>$status
           ]);
@@ -118,6 +128,8 @@ public function update()
     $user->update([
         'name'=>request('name'),
            'dob'=>request('dob'),
+           'email'=>request('email'),
+           'password'=>request('password'),
            'status'=>request('status')
     ]);
       return redirect()->route('home')

@@ -3,6 +3,10 @@
 @section('title','New User') 
 @section('content')
 <div class="container">
+
+  <label for="">{{session()->get('user_name')}}</label>
+ 
+
     <form class="form-control" action="{{route('users.save')}}" method="post">
       @csrf
       <div class="form-group">
@@ -12,6 +16,14 @@
         <div class="form-group">
           <label class="form-label">DATE</label>
           <input type="text" name="dob" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label class="form-label">email</label>
+          <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="text" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="form-group">
         <label class="form-label">STATUS</label>
