@@ -8,7 +8,8 @@ use App\Http\Controllers\LoginController;
 //     return view('welcome');
 // });
 
-Route::get('/', [HomeController::class, 'home']);
+// Route::get('/', [HomeController::class, 'home']);
+Route::get('/index', [HomeController::class, 'index'])->name('index');
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/users/create', [HomeController::class, 'create'])->name('users.create');
 Route::post('/users/save', [HomeController::class, 'save'])->name('users.save');

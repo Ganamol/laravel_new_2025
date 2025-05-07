@@ -19,6 +19,9 @@ class HomeController extends Controller
 
         // $age=30;
         // return view('welcome',compact('age'));
+      
+      
+      
         // $record=['red'];
 
         //  return view('welcome',compact('record'));
@@ -27,14 +30,14 @@ class HomeController extends Controller
         // $colors=['red','blue','green','yellow','red'];
         // return view('welcome',compact('colors'));
 
-        // $users=User::all();
+        $users=User::all();
 
-        session()->put('user_name','Gana');
-        session()->put('user_id','43');
+        // session()->put('user_name','Gana');
+        // session()->put('user_id','43');
         
-        $users=User::withTrashed()->latest()->paginate(6);
-       session()->forget('user_name');
-       session()->flush();
+    //     $users=User::withTrashed()->latest()->paginate(6);
+    //    session()->forget('user_name');
+    //    session()->flush();
         
         // $users=User::find(1);
         // $users=User::where('id','=',5)->get();
@@ -45,10 +48,24 @@ class HomeController extends Controller
             
             
              //   return $users->name;
+            //  return view('welcome',compact('users'));
+        return view('index',compact('users'));
 
-        return view('welcome',compact('users'));
 
+    }
+    public function index()
 
+    { 
+        $users=User::all();
+           session()->put('user_name','Gana');
+        session()->put('user_id','43');
+        
+        $users=User::withTrashed()->latest()->paginate(6);
+       session()->forget('user_name');
+       session()->flush();
+        return view('index',compact('users'));
+        // return session()->get('user_name');
+        // return view('index');
     }
 
     public function create()
@@ -93,15 +110,7 @@ class HomeController extends Controller
         // ]);
         // return $user;
 
-
-
-
-
-
-
-
-
-        return redirect()->route('home')->with('message','User Created Sucessfully');
+        return redirect()->route('login')->with('message','User Created Sucessfully');
         // return view('save.create');
     }
 
