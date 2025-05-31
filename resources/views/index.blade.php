@@ -26,7 +26,7 @@
            <th>No</th>
             <th scope="col">Name</th>
             <th scope="col">dob</th>
-            <th scope="col">Date</th>
+           
             <th scope="col">Email</th>
             <th scope="col">Password</th>
             <th scope="col">Status</th>
@@ -36,7 +36,7 @@
             @foreach ($users as $user)
             <tr>
                 {{-- <td>{{$loop->iteration}}</td> --}}
-                <td>{{$users->firstItem()+$loop->index}}</td>
+                {{-- <td>{{$users->firstItem()+$loop->index}}</td> --}}
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->dob}}</td>

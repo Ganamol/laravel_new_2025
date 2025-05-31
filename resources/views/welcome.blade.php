@@ -12,23 +12,29 @@
     </head>
     <body> --}}
         
-        {{-- <h1>Hai</h1>
-        <p>{{$name}}</p>
-        <h3>{{$c}}</h3>
+        {{-- <h1>Hai</h1> --}}
+        {{-- <p>{{$name}}</p>
+        <h3>{{$c}}</h3> --}}
 
-     @foreach ($colors as $color)
+
+
+     {{-- @foreach ($colors as $color)
         <h3>{{$color}}</h3>
         {{strtoupper($color)}}
         {{strtolower($color)}}
          {{$loop->index}}.{{$color}}
-        @endforeach 
+        @endforeach  --}}
 
 
-        @if($age==30)
-         <p>allowed</p>
-         @else
-         <p>not allowed</p>
-         @endif
+        {{-- @if($age==30)
+         <p>equal to 30</p>
+         @elseif($age==40)
+          <p>equal to 40</p>
+            @elseif($age==50)
+          <p>equal to 50</p>
+          @else
+          <p>default</p>
+         @endif --}}
 
 @switch($status)
     @case(1)
@@ -37,10 +43,10 @@
         @case(2)
         <h1>status2</h1>
         @break
-    @default 
-    <h1>default</h1>
+        @default 
+      <h1>default</h1>
     @break    
-@endswitch --}}
+@endswitch 
 
 
 
@@ -71,10 +77,18 @@
     @default
         
 @endswitch --}}
+ 
 
-{{-- @for ($i=1;$i<5;$i++)
+
+
+@for($i=1;$i<5;$i++)
     <h1>the value is{{$i}}</h1>
-@endfor --}}
+@endfor 
+
+
+
+
+
 
 
 {{-- @foreach ($colors as  $color)

@@ -14,42 +14,59 @@ class HomeController extends Controller
         // $b=20;
         // $c=$a+$b;
         // $name="Gana";
+    //    return view('welcome',compact('c','name'));
+
+   
         // $colors=['red','blue','green','yellow'];
-        // return view('welcome',compact('name','c','colors'));
+        // return view('welcome',compact('colors'));
 
         // $age=30;
         // return view('welcome',compact('age'));
-      
+        
+    //    $status=1;
+    //     return view('welcome',compact('status'));
       
       
         // $record=['red'];
 
         //  return view('welcome',compact('record'));
-        // $status=1;
-        // return view('welcome',compact('status'));
+       
         // $colors=['red','blue','green','yellow','red'];
         // return view('welcome',compact('colors'));
 
-        $users=User::all();
 
-        // session()->put('user_name','Gana');
-        // session()->put('user_id','43');
-        
-    //     $users=User::withTrashed()->latest()->paginate(6);
+        // $users=User::all();   
+        //  return $users;
+    
+        // $users=User::find(1); 
+        //   return $users;
+
+        // $users=User::where('id','=',1)->first();
+        // return $users->name;
+
+        // $users=User::where('id','=',1)->get();
+        // return $users[0]->name;
+
+
+        //   $users=User::where('name','=','Richmond Bernier')->first();
+           
+        // $users=User::whereIn('id',[1,2])->get();
+        //     return $users;
+
+             $users=User::where('status',1)->get();
+            return $users;
+            
+
+
+             //   return $users->name;
+            //  return view('welcome',compact('users'));
+            //     $users=User::withTrashed()->latest()->paginate(6);
     //    session()->forget('user_name');
     //    session()->flush();
         
-        // $users=User::find(1);
-        // $users=User::where('id','=',5)->get();
-        //   $users=User::where('id','=',5)->first();
-          //   $users=User::where('name','=','Richmond Bernier')->first();
-            //  $users=User::whereIn('id',[43,23])->get();
-            //  $users=User::where('status',1)->get();
-            
-            
-             //   return $users->name;
-            //  return view('welcome',compact('users'));
-        return view('index',compact('users'));
+        // return view('index',compact('users'));
+             // session()->put('user_name','Gana');
+        // session()->put('user_id','43');
 
 
     }
@@ -57,8 +74,8 @@ class HomeController extends Controller
 
     { 
         $users=User::all();
-           session()->put('user_name','Gana');
-        session()->put('user_id','43');
+    //        session()->put('user_name','Gana');
+    //     session()->put('user_id','43');
         
         $users=User::withTrashed()->latest()->paginate(6);
        session()->forget('user_name');
@@ -88,6 +105,7 @@ class HomeController extends Controller
            'dob'=>$dob,
            'status'=>$status
           ]);
+          return view('users.create');
 
     //   $user=User::firstOrCreate([
     //         'email'=>request('email')

@@ -11,7 +11,11 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
 
+    
     // protected $primaryKey='user_id';
+
+
+
    public function getDateofbirthAttribute($value)
    {
     return date('d-M-Y',strtotime($value));

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SalaryController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -19,3 +20,7 @@ Route::post('/users/update', [HomeController::class, 'update'])->name('update.us
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/dologin', [LoginController::class, 'dologin'])->name('do.login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/salary/create', [SalaryController::class, 'create'])->name('salary.create');
+Route::post('/salary/save', [SalaryController::class, 'save'])->name('salary.save');
+Route::get('/salary/index', [SalaryController::class, 'index'])->name('salary.index');
+Route::get('/salary/edit/{id}', [SalaryController::class, 'edit'])->name('salary.edit');
