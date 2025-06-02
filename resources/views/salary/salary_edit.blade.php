@@ -3,7 +3,7 @@
 @section('title','New User') 
 @section('content')
 <div class="container">
-    <form class="form-control"   method="post">
+    <form class="form-control"    method="post">
       @csrf
       <div class="form-group">
           <label class="form-label">Name</label>

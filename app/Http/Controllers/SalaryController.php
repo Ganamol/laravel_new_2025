@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class SalaryController extends Controller
 {
+
+
     public function create()
     {
-        $users=User::pluck('name', 'id');;       
+        $users=User::pluck('name', 'id');       
        return view('salary.salary_create',compact('users'));
     }
 

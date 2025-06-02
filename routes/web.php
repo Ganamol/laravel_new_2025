@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SalaryController;
@@ -24,3 +25,5 @@ Route::get('/salary/create', [SalaryController::class, 'create'])->name('salary.
 Route::post('/salary/save', [SalaryController::class, 'save'])->name('salary.save');
 Route::get('/salary/index', [SalaryController::class, 'index'])->name('salary.index');
 Route::get('/salary/edit/{id}', [SalaryController::class, 'edit'])->name('salary.edit');
+Route::get('/file/create', [FileController::class, 'create'])->name('file.create');
+Route::post('/upload', [FileController::class, 'store'])->name('file.upload');
