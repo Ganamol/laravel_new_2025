@@ -27,3 +27,6 @@ Route::get('/salary/index', [SalaryController::class, 'index'])->name('salary.in
 Route::get('/salary/edit/{id}', [SalaryController::class, 'edit'])->name('salary.edit');
 Route::get('/file/create', [FileController::class, 'create'])->name('file.create');
 Route::post('/upload', [FileController::class, 'store'])->name('file.upload');
+Route::get('/File/index', [FileController::class, 'index'])->name('file.index');
+Route::get('/File/edit/{id}', [FileController::class, 'edit'])->name('file.edit');
+Route::post('/File/update', [FileController::class, 'update'])->name('file.update');

@@ -20,7 +20,7 @@
           <tr>
            
             <th scope="col">Id</th>
-             <th scope="col">Name</th>
+            <th scope="col">Name</th>
             <th scope="col">Salary</th>
             <th scope="col">Month</th>
             <th scope="col">Year</th>
@@ -29,8 +29,7 @@
         </thead>
         <tbody>
             @foreach ($sal as $sa)
-            <tr>
-              
+            <tr> 
                 <td>{{$sa->id}}</td>
                 <td>{{$sa->name}}</td>
                 <td>{{$sa->salary}}</td>

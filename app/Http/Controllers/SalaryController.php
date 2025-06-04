@@ -36,6 +36,9 @@ class SalaryController extends Controller
            $users=User::pluck('name', 'id');
           return view('salary.salary_create',compact('users'));
     }
+
+
+
      public function index()
     {  
      $sal = DB::table('salaries')
@@ -44,6 +47,8 @@ class SalaryController extends Controller
     ->get();
        return view('salary.salary_index',compact('sal'));
     }
+
+
 
 public function edit($id)
 {
@@ -54,8 +59,8 @@ public function edit($id)
         ->select('salaries.*', 'users.name')
         ->where('salaries.id', $decryptedId)
         ->first();
-    $users=User::pluck('name', 'id');
-    return view('salary.salary_edit', compact('sal','users'));
+        $users=User::pluck('name', 'id');
+        return view('salary.salary_edit', compact('sal','users'));
 }
 
 }
